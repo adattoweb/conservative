@@ -43,8 +43,8 @@ function PostLink({ href, name, icon, url }:LinkProps){
 
 export default function Sidebar({ url, isOpen }:SidebarProps) {
     return (
-        <div className={`w-full py-6 pr-3 min-[460px]:py-2 min-[460px]:w-50 absolute flex-col gap-6.25 hidden bg-(--body-bg) border-r border-b xl:border-b-0 border-[#4a4a4a] rounded-br-2xl xl:rounded-none ${isOpen ? "flex!" : ""}`}>
-            <div className="flex flex-col gap-3">
+        <div className={`fixed w-full h-full py-6 pr-3 min-[460px]:py-2 min-[460px]:w-50 flex-col gap-6.25 hidden bg-(--body-bg) border-r border-b xl:border-b-0 border-[#4a4a4a] rounded-br-2xl xl:rounded-none ${isOpen ? "flex!" : ""}`}>
+            <div className="flex flex-col gap-3 w-(--width,1200px)">
                 {wposts.map((el, index) => <Category key={index} name={el.name} posts={el.posts} url={url}/>)}
             </div>
         </div>

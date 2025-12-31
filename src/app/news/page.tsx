@@ -47,10 +47,11 @@ export default function NewsPage() {
     useEffect(() => {
         setPage(1)
     }, [categories])
+    
 
     return (
         <div className="w-(--width,1200px) mt-20">
-            <div className="flex flex-col-reverse py-10 min-[400px]:flex-row gap-5 min-[400px]:justify-between">
+            <div className="flex flex-col-reverse py-10 min-[460px]:flex-row gap-5 min-[400px]:justify-between">
                 <DropdownFew title="Категорії" selected={categories} setSelected={setCategories} array={array} className="self-start"/>
                 <Input/>
             </div>

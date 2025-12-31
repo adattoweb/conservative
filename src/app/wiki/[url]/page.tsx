@@ -5,7 +5,7 @@ import Content from "./Content";
 import Sidebar from "./Sidebar";
 import { useParams } from "next/navigation";
 import Input from "@/app/wiki/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Burger from "@/UI/Burger";
 
 interface WikiProps {
@@ -31,9 +31,9 @@ export default function Wiki({ url }:WikiProps) {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div className="w-(--width,1200px) mt-20">
+        <div className={`w-(--width,1200px) mt-20 ${isOpen ? "overflow-y-hidden max-h-100" : ""}`}>
             <div className="flex flex-col py-10 min-[400px]:flex-row gap-5 min-[400px]:justify-between">
-                <div className="text-2xl font-medium min-[400px]:flex min-[400px]:justify-center min-[400px]:items-center gap-4"><Burger isOpen={isOpen} setIsOpen={setIsOpen}/><p className="hidden sm:block">Wiki</p></div>
+                <div className="text-2xl font-medium min-[400px]:flex min-[400px]:justify-center min-[400px]:items-center gap-4"><Burger isOpen={isOpen} setIsOpen={setIsOpen} className="z-1"/><p className="hidden sm:block">Wiki</p></div>
                 <Input/>
             </div>
             <div className="flex">
