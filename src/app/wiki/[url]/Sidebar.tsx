@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { wposts, Post } from "@/data/wiki";
+import Burger from "@/UI/Burger";
 
 interface LinkProps {
     href: string
@@ -19,12 +20,13 @@ interface CategoryProps {
 interface SidebarProps {
     url: string
     isOpen: boolean
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 function Category({ name, posts, url }:CategoryProps){
     return (
         <div className="flex flex-col">
-            <h4 className="text-xl">{name}</h4>
+            <h4 className="text-xl my-2">{name}</h4>
             <div className="flex flex-col">
                 {posts.map((el, index) => <PostLink key={index} href={el.url} name={el.name} icon={el.icon} url={url}/>)}
             </div>
@@ -41,10 +43,11 @@ function PostLink({ href, name, icon, url }:LinkProps){
     )
 }
 
-export default function Sidebar({ url, isOpen }:SidebarProps) {
+export default function Sidebar({ url, isOpen, setIsOpen }:SidebarProps) {
     return (
-        <div className={`fixed w-full h-full py-6 pr-3 min-[460px]:py-2 min-[460px]:w-50 flex-col gap-6.25 hidden bg-(--body-bg) border-r border-b xl:border-b-0 border-[#4a4a4a] rounded-br-2xl xl:rounded-none ${isOpen ? "flex!" : ""}`}>
-            <div className="flex flex-col gap-3 w-(--width,1200px)">
+        <div className={`fixed sm:top-auto top-0 z-100 w-screen sm:w-50 h-screen sm:h-auto left-0 sm:left-auto bg-(--body-bg)/90 sm:bg-(--body-bg) backdrop-blur-2xl right-auto sm:py-2 flex-col gap-6.25 hidden border-r border-b xl:border-b-0 border-[#4a4a4a] sm:rounded-br-2xl xl:rounded-none ${isOpen ? "flex!" : ""}`}>
+            <Burger isOpen={isOpen} setIsOpen={setIsOpen} className="flex sm:hidden absolute top-10 left-10"/>
+            <div className="mt-20 sm:mt-0 px-10 pb-8 sm:px-0 sm:pb-2 sm:pr-3 flex flex-col gap-3 sm:w-auto">
                 {wposts.map((el, index) => <Category key={index} name={el.name} posts={el.posts} url={url}/>)}
             </div>
         </div>
