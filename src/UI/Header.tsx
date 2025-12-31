@@ -31,7 +31,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <div className="mt-11.25 w-(--width,1200px) flex items-center justify-between absolute z-10">
-            <h1 className="font-medium text-xl lg:text-2xl">{APP.NAME}</h1>
+            <Link href={ROUTES.HOME.ROUTE}><h1 className="font-medium text-xl lg:text-2xl">{APP.NAME}</h1></Link>
             <ul className="items-center gap-5 lg:gap-7 xl:gap-9 hidden md:flex">
                 {Object.values(ROUTES).map(el => <NavItem key={el.ROUTE} href={el.ROUTE} path={path}>{el.NAME}</NavItem>)}
             </ul>
