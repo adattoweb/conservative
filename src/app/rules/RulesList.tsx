@@ -1,7 +1,8 @@
 "use client"
 
 import ContentBlock from "@/UI/Content"
-import { Content, rules } from "@/data/rules"
+import { rules } from "@/data/rules"
+import type { Content } from "@/types/contentType"
 import Image from "next/image"
 
 const rightIndexes:number[] = []
