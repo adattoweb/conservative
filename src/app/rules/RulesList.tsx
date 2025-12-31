@@ -51,7 +51,7 @@ interface RuleProps {
 function Rule({ index, title, src, content }:RuleProps){
     return (
         <div className={`bg-[#16161A] border border-[#2A2A30] rounded-4xl flex flex-col md:flex-row justify-between box-border py-7 px-9 xl:py-10 xl:px-11 gap-10 md:gap-12 xl:gap-15 ${columnIndexes.includes(index) ? "xl:flex-col!" : ""} ${rightIndexes.includes(index) ? "xl:flex-row-reverse" : ""}`} style={{gridArea: `a${index}`}}>
-            <Image width={250} height={290} alt={title} src={src} className="self-center w-50 xl:w-40 2xl:w-50"/>
+            <Image width={250} height={290} alt={title} src={src} className="self-center w-50 xl:w-40 2xl:w-50" priority/>
             <div className="flex flex-col">
                 <h3 className="text-[#5865F2] text-1xl sm:text-2xl 2xl:text-3xl font-bold">{title}</h3>
                 <ContentBlock data={content}/>

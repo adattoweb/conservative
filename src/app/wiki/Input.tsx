@@ -24,7 +24,7 @@ const variants = posts.map(el => ({
 function Variant({ url, name, description, icon, setValue }:VariantProps){
     return (
         <Link href={`/wiki/${url}`} className="hover:bg-[#343434] box-content py-1.5 px-2.5 rounded-xl cursor-pointer flex gap-3 items-center" onClick={() => setValue("")} draggable={false}>
-            <Image width={28} height={28} src={icon} alt={name} className="w-7 h-7" draggable={false}/>
+            <Image width={28} height={28} src={icon} alt={name} className="w-7 h-7" draggable={false} priority/>
             <div className="flex flex-col">
                 <h5 className="text-base">{name}</h5>
                 <p className="text-sm text-[#cbcbcb] max-h-15 overflow-hidden">{description}</p>

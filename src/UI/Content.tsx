@@ -18,7 +18,7 @@ export default function ContentBlock({ data, className } :ContentProps){
             return (
                 <div key={index} className="grid my-4 gap-3 justify-items-center sm:my-1 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {el.images.map((picture, index) => {
-                        return <Image key={index} className="rounded-sm" width={2000} height={300} src={picture.src} alt={picture.alt || "Зображення"} />
+                        return <Image key={index} className="rounded-sm" width={2000} height={300} src={picture.src} alt={picture.alt || "Зображення"} priority/>
                     })}
                 </div>
             )

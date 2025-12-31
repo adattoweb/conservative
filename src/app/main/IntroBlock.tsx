@@ -45,7 +45,7 @@ export default function IntroBlock() {
                             {data.intro.features.map((el, index) => <Feature key={index} title={el.title} description={el.description}/>)}
                           </div>
                       </div>
-                      <Image width={500} height={374} className="relative top-5 md:top-auto md:bottom-20 xl:bottom-10 md:left-3 w-80 xl:w-125 self-center md:self-end" src="/images/alex.png" alt="alex" draggable={false}/>
+                      <Image width={500} height={374} className="relative top-5 md:top-auto md:bottom-20 xl:bottom-10 md:left-3 w-80 xl:w-125 self-center md:self-end" src="/images/alex.png" alt="alex" draggable={false} priority/>
                   </div>
               </div>
             </div>
