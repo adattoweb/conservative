@@ -5,7 +5,7 @@ import Content from "./Content";
 import Sidebar from "./Sidebar";
 import { useParams } from "next/navigation";
 import Input from "@/app/wiki/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Burger from "@/UI/Burger";
 
 interface WikiProps {
@@ -29,12 +29,26 @@ export default function Wiki({ url }:WikiProps) {
     const categoryIndex = wposts.findIndex(category => category.posts.some(post => post.url === newUrl))
 
     const [isOpen, setIsOpen] = useState(false)
+    useEffect(() => {
+        if (isOpen) {
+          document.body.style.overflow = "hidden";
+          document.body.style.maxHeight = "100vh";
+        } else {
+          document.body.style.overflow = "";
+          document.body.style.maxHeight = "";
+        }
+      
+        return () => {
+          document.body.style.overflow = "";
+          document.body.style.maxHeight = "";
+        };
+      }, [isOpen]);
 
     return (
         <div className="w-(--width,1200px) mt-20">
             <div className="flex flex-col-reverse py-10 min-[400px]:flex-row gap-5 min-[400px]:justify-between">
                 <div className="text-2xl font-medium min-[400px]:flex min-[400px]:justify-center min-[400px]:items-center gap-4">
-                    <Burger isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? "fixed top-15 left-8 sm:static" : ""} mt-2 z-1000`}/>
+                    <Burger isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? "fixed top-15 left-8 sm:static z-13 transition-transform" : ""} mt-2 z-5`}/>
                     <p className="hidden sm:block">Wiki</p>
                 </div>
                 <Input/>

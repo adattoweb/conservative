@@ -44,7 +44,7 @@ function PostLink({ href, name, icon, url }:LinkProps){
 
 export default function Sidebar({ url, isOpen }:SidebarProps) {
     return (
-        <div className={`justify-center items-center fixed sm:top-auto top-0 z-100 w-screen sm:w-50 h-screen sm:h-auto left-0 sm:left-auto bg-black/80 sm:bg-(--body-bg) backdrop-blur-xs right-auto sm:py-2 flex-col gap-6.25 hidden border-r border-b xl:border-b-0 border-[#4a4a4a] sm:rounded-br-2xl xl:rounded-none ${isOpen ? "flex!" : ""}`}>
+        <div className={`justify-center items-center fixed sm:top-auto top-0 z-11 w-screen sm:w-50 h-screen sm:h-auto left-0 sm:left-auto bg-black/80 sm:bg-(--body-bg) backdrop-blur-xs right-auto sm:py-2 flex-col gap-6.25 hidden border-r border-b xl:border-b-0 border-[#4a4a4a] sm:rounded-br-2xl xl:rounded-none ${isOpen ? "flex!" : ""}`}>
             <div className="mt-20 sm:mt-0 px-5 pb-8 sm:px-0 sm:pb-2 sm:pr-3 flex flex-col gap-3 sm:w-auto">
                 {wposts.map((el, index) => <Category key={index} name={el.name} posts={el.posts} url={url}/>)}
             </div>

@@ -4,7 +4,7 @@ import Link from "next/link"
 import { APP, ROUTES } from "@/constants/constants"
 import { usePathname } from "next/navigation"
 import Burger from "./Burger"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface NavItemProps {
     href: string
@@ -29,6 +29,20 @@ function NavItem({ href, path, children, className }: NavItemProps) {
 export default function Header() {
     const path = usePathname();
     const [isOpen, setIsOpen] = useState(false)
+    useEffect(() => {
+        if (isOpen) {
+          document.body.style.overflow = "hidden";
+          document.body.style.maxHeight = "100vh";
+        } else {
+          document.body.style.overflow = "";
+          document.body.style.maxHeight = "";
+        }
+      
+        return () => {
+          document.body.style.overflow = "";
+          document.body.style.maxHeight = "";
+        };
+      }, [isOpen]);
     return (
         <div className="mt-11.25 w-(--width,1200px) flex items-center justify-between absolute z-10">
             <Link href={ROUTES.HOME.ROUTE}><h1 className="font-medium text-xl lg:text-2xl">{APP.NAME}</h1></Link>
