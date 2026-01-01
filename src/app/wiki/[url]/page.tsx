@@ -46,9 +46,9 @@ export default function Wiki({ url }:WikiProps) {
 
     return (
         <div className="w-(--width,1200px) mt-20">
-            <div className="flex flex-col-reverse py-10 min-[400px]:flex-row gap-5 min-[400px]:justify-between">
-                <div className="text-2xl font-medium min-[400px]:flex min-[400px]:justify-center min-[400px]:items-center gap-4">
-                    <Burger isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? "fixed top-15 left-8 sm:static z-13 transition-transform" : ""} mt-2 z-5`}/>
+            <div className="flex flex-col-reverse py-10 min-[300px]:flex-row gap-5 min-[400px]:justify-between">
+                <div className="text-2xl font-medium min-[300px]:flex min-[300px]:justify-center min-[300px]:items-center gap-4">
+                    <Burger isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? "fixed top-15 left-8 sm:static z-13 transition-transform" : ""} mt z-5`}/>
                     <p className="hidden sm:block">Wiki</p>
                 </div>
                 <Input/>
